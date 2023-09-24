@@ -1,0 +1,23 @@
+<Electrice_Device>
+
+<Mobile sr="1">
+            <ID>11</ID>
+            <NAME>Samsung</NAME>
+            <U_PRICE>35000</U_PRICE>
+
+
+</Mobile>
+
+<Mobile sr="2">
+            <ID>12</ID>
+            <NAME>HTC</NAME>
+            <U_PRICE>65300</U_PRICE>
+</Mobile>
+
+<Mobile sr="3">
+            <ID>13</ID>
+            <NAME>Nokia</NAME>
+            <U_PRICE>25100</U_PRICE>
+</Mobile>
+
+</Electrice_Device>
