@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <title>Profile picture</title>
+    <script>
+        function validateProfile() {
+            var userId = document.forms["myForm"]["id"].value;
+            var picture = document.forms["myForm"]["picture"].value;
+            var userIdError = document.getElementById("userIdError");
+            var pictureError = document.getElementById("pictureError");
+
+            userIdError.innerHTML = "";  
+            pictureError.innerHTML = ""; 
+            if (userId.trim() === "") {
+                userIdError.innerHTML = "User ID cannot be empty";
+                return false;
+            }
+
+            if (!/^[1-9]\d*$/.test(userId)) {
+                userIdError.innerHTML = "User ID must be a positive number";
+                return false;
+            }
+            if (picture.trim() === "") {
+                pictureError.innerHTML = "Picture cannot be empty";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="myForm" method="post" action="" onsubmit="return validateProfile()" enctype="">
+        <fieldset style="height: 150px; width: 350;">
+            <legend>Profile picture</legend>
+            <label for="User Id">User Id</label>
+            <input type="id" id="id" name="id">
+            <span id="userIdError" style="color: red;"></span><br><br>
+
+            <label for="picture"> Picture </label>
+            <input type="file" id="picture" name="picture">
+            <span id="pictureError" style="color: red;"></span><br><br>
+
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+</body>
+</html>

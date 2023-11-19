@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+   <title>Blood Group</title>
+   <script>
+      function validateBloodGroup() {
+         var bloodGroup = document.forms["myForm"]["bloodGroup"].value;
+         var errorElement = document.getElementById("bloodGroupError");
+         errorElement.innerHTML = "";  
+         if (bloodGroup === "") {
+            errorElement.innerHTML = "Please select a blood group";
+            return false;
+         }
+
+         return true;
+      }
+   </script>
+</head>
+<body>
+   <form name="myForm" method="post" action="" onsubmit="return validateBloodGroup()" enctype="">
+      <label for="bloodGroup">Blood Group:</label>
+      <select id="bloodGroup" name="bloodGroup">
+         <option value="A+">A+</option>
+         <option value="A-">A-</option>
+         <option value="B+">B+</option>
+         <option value="B-">B-</option>
+         <option value="O+">O+</option>
+         <option value="O-">O-</option>
+         <option value="AB+">AB+</option>
+         <option value="AB-">AB-</option>
+      </select><br><br>
+      <input type="submit" value="Submit">
+      <span id="bloodGroupError" style="color: red;"></span>
+   </form>
+</body>
+</html>

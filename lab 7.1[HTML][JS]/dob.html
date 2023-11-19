@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>DOB</title>
+    <script>
+        function validateDOB() {
+            var dob = document.forms["myForm"]["dob"].value;
+            var errorElement = document.getElementById("dobError");
+            errorElement.innerHTML = "";  // Clear previous error message
+
+            if (dob.trim() === "") {
+                errorElement.innerHTML = "Date of Birth cannot be empty";
+                return false;
+            }
+
+            var dateObject = new Date(dob);
+
+            if (isNaN(dateObject.getTime())) {
+                errorElement.innerHTML = "Enter a valid date";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="myForm" method="post" action="" onsubmit="return validateDOB()" enctype="">
+        <table border="1">
+            <fieldset style="height: 100px; width: 100px;">
+                <legend>Date of Birth</legend> 
+                <input type="date" name="dob" value="" /> 
+            </fieldset>
+        </table>
+        <br>
+        <input type="submit" value="Submit">
+        <span id="dobError" style="color: red;"></span>
+    </form>
+</body>
+</html>

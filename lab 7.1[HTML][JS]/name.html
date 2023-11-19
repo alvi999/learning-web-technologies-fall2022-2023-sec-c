@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <title>Name</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <script>
+        function validateName() {
+            var name = document.forms["myForm"]["name"].value;
+            var errorElement = document.getElementById("nameError");
+            errorElement.innerHTML = "";  
+            if (name.trim() === "") {
+                errorElement.innerHTML = "Name cannot be empty";
+                return false;
+            }
+
+            var words = name.split(' ');
+            if (words.length < 2) {
+                errorElement.innerHTML = "Name must contain at least two words";
+                return false;
+            }
+
+            var pattern = /^[a-zA-Z.\- ]+$/;
+            if (!pattern.test(name)) {
+                errorElement.innerHTML = "Name can only contain letters, dots, dashes, and spaces";
+                return false;
+            }
+
+            if (!/^[a-zA-Z]/.test(name)) {
+                errorElement.innerHTML = "Name must start with a letter";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="myForm" method="post" action="" onsubmit="return validateName()" enctype="">
+        name: <input type="text" name="name" value="" /> <span id="nameError" class="error"></span> <br>
+        <input type="submit" name="submit" value="Submit" />
+    </form>
+</body>
+</html>

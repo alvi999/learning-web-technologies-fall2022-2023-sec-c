@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <title>Email</title>
+    <script>
+        function validateEmail() {
+            var email = document.forms["myForm"]["email"].value;
+            var errorElement = document.getElementById("emailError");
+            errorElement.innerHTML = ""; 
+            if (email.trim() === "") {
+                errorElement.innerHTML = "Email cannot be empty";
+                return false;
+            }
+
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                errorElement.innerHTML = "Enter a valid email address (e.g., anything@example.com)";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="myForm" method="post" action="" onsubmit="return validateEmail()" enctype="">
+        <legend>Email</legend> 
+        <input type="email" id="email" name="email">
+        <input type="button" value="i" title="hintxyz@gmail.com"><br><br> 
+        <input type="submit" value="Submit">
+        <span id="emailError" style="color: red;"></span>
+    </form>
+</body>
+</html>
